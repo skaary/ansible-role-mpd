@@ -22,15 +22,23 @@
 #     enabled: false
 #   become: true
 
-- name: ensure mpd specific directories exist
+- name: ensure mpd playlist directory exist
   file:
-    path: "{{ mpd_dir }}"
+    path: "{{ mpd_dir }}/playlists"
     state: directory
     owner: "{{ mpd_user }}"
     group: "{{ mpd_group }}"
     # mode: 0755
     recurse: true
   become: true
+
+- name: copy mpd.conf example to .config/mpd/mpd.conf
+  template:
+    src: templates/mpd.conf
+    dest: "{{ mpd_dir }}/mpd.conf"
+    owner: "{{ mpd_user }}"
+    group: "{{ mpd_group }}"
+    # mode: '0644'
 
 - name: ensure ncmpcpp is installed
   apt:

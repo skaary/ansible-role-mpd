@@ -4,6 +4,8 @@
   vars:
     mpd_user: testuser
     mpd_group: testuser
+    mpd_dir: /home/testuser/.config/mpd
+    ncmpcpp_dir: /home/testuser/.config/ncmpcpp
 
   pre_tasks:
     - name: Update apt cache.
