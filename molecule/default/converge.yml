@@ -6,6 +6,7 @@
     mpd_group: testuser
     mpd_dir: /home/testuser/.config/mpd
     ncmpcpp_dir: /home/testuser/.config/ncmpcpp
+    mpd_local_dir: /home/testuser/.local/share/mpd
 
   pre_tasks:
     - name: Update apt cache.

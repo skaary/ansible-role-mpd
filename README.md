@@ -1,7 +1,7 @@
 # Ansible Role: MPD
 [![CI](https://github.com/skaary/ansible-role-mpd/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/skaary/ansible-role-mpd/actions?query=workflow%3Ci)
 
-An Ansible Role that installs [MPD](https://www.musicpd.org/) on Linux. 
+An Ansible Role that installs [MPC](https://linux.die.net/man/1/mpc), [MPD](https://www.musicpd.org/), and (optionally) [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) on Linux.
 
 ## Installation
 
@@ -10,6 +10,7 @@ Download the role directly from git by typing into your terminal:
 ```bash
 $ ansible-galaxy install git+https://github.com/skaary/ansible-role-mpd.git
 ```
+
 or
 
 ```bash

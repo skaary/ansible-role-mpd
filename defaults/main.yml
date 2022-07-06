@@ -3,11 +3,10 @@ mpd_user: "{{ ansible_user_id }}"
 mpd_group: "{{ ansible_user_id }}"
 
 mpd_dir: "{{ ansible_env.HOME }}/.config/mpd"
+mpd_local_dir: "{{ ansible_env.HOME }}/.local/share/mpd"
 ncmpcpp_dir: "{{ ansible_env.HOME }}/.config/ncmpcpp"
 
 mpd_sample_config: true
-
-mpc_install: true
 
 ncmpcpp_sample_config: true
 ncmpcpp_install: true
