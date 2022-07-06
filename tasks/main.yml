@@ -1,0 +1,50 @@
+---
+# (add current user to group audio, systemctl stop mpd.service && systemctl disable mpd.service && systemctl --user enable mpd.service, damit daemon durch user startet bei startup)
+
+- name: ensure mpc is installed
+  apt:
+    name: mpc
+    state: present
+  when: mpc_install
+  become: true
+
+- name: ensure mpd is installed
+  apt:
+    name: mpd
+    state: present
+  register: mpd_register
+  become: true
+
+# - name: stop and disable mpd service
+#   systemd:
+#     name: mpd
+#     state: stopped
+#     enabled: false
+#   become: true
+
+- name: ensure mpd specific directories exist
+  file:
+    path: "{{ mpd_dir }}"
+    state: directory
+    owner: "{{ mpd_user }}"
+    group: "{{ mpd_group }}"
+    # mode: 0755
+    recurse: true
+  become: true
+
+- name: ensure ncmpcpp is installed
+  apt:
+    name: ncmpcpp
+    state: present
+  when: ncmpcpp_install
+  become: true
+
+- name: ensure ncmpcpp specific directories exist
+  file:
+    path: "{{ ncmpcpp_dir }}"
+    state: directory
+    owner: "{{ mpd_user }}"
+    group: "{{ mpd_group }}"
+    # mode: 0755
+    recurse: true
+  become: true

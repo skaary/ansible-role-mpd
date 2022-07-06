@@ -1,0 +1,19 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    mpd_user: testuser
+    mpd_group: testuser
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+
+    - name: create test user
+      user:
+        name: testuser
+
+  tasks:
+    - name: "Include ansible-role-mpd"
+      include_role:
+        name: "ansible-role-mpd"
